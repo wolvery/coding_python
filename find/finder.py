@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 ORIGINAL_NAME = 0
 SORTED_NAME = 1
@@ -14,19 +14,20 @@ class Finder:
         :param string_list: List of words to be searched on
         :rtype: Finder
         """
-        self.conjunct = self.adjusts(string_list)
+        self.conjunct: Dict[str, List[str]] = self.adjusts(string_list)
 
     @staticmethod
-    def adjusts(string_list: List[str]) -> Dict[int, List[Tuple[str, str]]]:
+    def adjusts(string_list: List[str]) -> Dict[str, List[str]]:
         """
         Adjust a given string lists to a schema of dict[Length: sublist of words].
         :param string_list: List of words to be adjusted
         :rtype: dict[Length: sublist of words]
         """
-        conjunct = defaultdict(list)
+        conjunct: Dict[str, List[str]] = defaultdict(list)
 
         for element in string_list:
-            conjunct[len(element)] += [(element, EMPTY.join(sorted(element)))]
+            sorted_element = EMPTY.join(sorted(element))
+            conjunct[sorted_element].append(element)
 
         return conjunct
 
@@ -37,15 +38,9 @@ class Finder:
         :rtype: List of matched words registered to this instance of Finder.
         """
         matched_words: List[str] = list()
-        length = len(word)
         sorted_word = EMPTY.join(sorted(word))
 
-        for element in self.conjunct[length]:
-            if sorted_word == element[SORTED_NAME]:
-                matched_words += [element[ORIGINAL_NAME]]
+        if sorted_word in self.conjunct:
+            return self.conjunct[sorted_word]
 
         return matched_words
-
-
-
-

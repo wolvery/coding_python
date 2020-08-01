@@ -25,16 +25,13 @@ returns ['asd']
 From the example, I should return elements with the same quantity of characters from input.
 
 
-Some assumptions:
-* It appears that the list may contains any words bigger or smaller than the input.
-I do not need to check words which length differs from the input. 
-If this occurs frequently, I could use a dictionary of lengths as key
-and group the words with the same length. 
+Some assumptions: 
 * The word inside of string_list must match with the quantity of each characters from input. 
 I can reach this with an order at both of them and comparing them afterwards. 
 * If multiple find will be executed, it would be interesting to reduce the ordering from the list to happen again. 
-A possible solution would perform sort at each element of string_list just once and store it as tuple.
-This will increase the space complexity to 2n. N being the length of string_list.
+A possible solution would perform sort at each element of string_list just once and store it.
+
+
 
 
 Test Framework used:
@@ -43,3 +40,16 @@ Reasons:
 * Familiarity with it.
 * Capacity to execute unittest as well.
 * Appreciates the fixture and parametrize functionality.
+
+
+## HOW TO
+# test
+pytest tests
+pylint  find
+mypy find
+# execute
+`docker build . -t test`
+`docker run test`
+OR 
+`docker run -ti test bash`
+

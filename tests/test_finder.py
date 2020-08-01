@@ -4,16 +4,16 @@ from typing import Dict, List, Tuple
 
 
 @pytest.mark.parametrize("string_list, expected", [
-    (['asd', 'das'], {3: [('asd', 'ads'), ('das', 'ads')]}),
-    (['asd', 'das', 'asdd'], {3: [('asd', 'ads'), ('das', 'ads')], 4: [('asdd', 'adds')]})
+    (['asd', 'das'], {'ads': ['asd', 'das']}),
+    (['asd', 'das', 'asdd'], {'ads': ['asd', 'das'], 'adds': ['asdd']})
 
 ])
-def test_init_finder(string_list: List[str], expected: Dict[int, List[Tuple[str, str]]]):
+def test_init_finder(string_list: List[str], expected: Dict[str, List[str]]):
     """
     Test that init works properly to adjust string_list.
     """
     instance = Finder(string_list)
-    assert all(instance.conjunct[length] == expected[length] for length in expected.keys())
+    assert all(instance.conjunct[word] == expected[word] for word in expected.keys())
 
 
 @pytest.mark.parametrize("string_list, word, expected", [
