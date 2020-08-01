@@ -43,11 +43,17 @@ Reasons:
 
 
 ## HOW TO
-# test
+### test
 pytest tests
+
+
 pylint  find
+
+
 mypy find
-# execute
+
+
+### execute
 `docker build . -t test`
 `docker run test`
 OR 
