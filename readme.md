@@ -44,17 +44,25 @@ Reasons:
 
 ## HOW TO
 ### test
-pytest tests
+
+`pip install -r requirements.txt`
 
 
-pylint  find
+`pytest tests`
 
 
-mypy find
+`pylint  find`
+
+
+`mypy find`
 
 
 ### execute
+
+
 `docker build . -t test`
+
+
 `docker run test`
 OR 
 `docker run -ti test bash`
