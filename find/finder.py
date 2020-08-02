@@ -19,9 +19,9 @@ class Finder:
     @staticmethod
     def adjusts(string_list: List[str]) -> Dict[str, List[str]]:
         """
-        Adjust a given string lists to a schema of dict[Length: sublist of words].
+        Adjust a given string lists to a schema of dict[sorted_word: sublist of string_list].
         :param string_list: List of words to be adjusted
-        :rtype: dict[Length: sublist of words]
+        :rtype: dict[sorted_word: sublist of string_list]
         """
         conjunct: Dict[str, List[str]] = defaultdict(list)
 
