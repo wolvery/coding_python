@@ -1,8 +1,6 @@
 from collections import defaultdict
 from typing import Dict, List
 
-ORIGINAL_NAME = 0
-SORTED_NAME = 1
 EMPTY = ""
 
 
