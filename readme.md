@@ -1,5 +1,5 @@
 # Introduction
-## Relayr Onboarding Python Test
+## Python Code
 
 ` You will design & write a Python class that accepts a list of strings in the constructor. The
 class will expose a find function that accepts a string. The function will return all strings from
